@@ -14,25 +14,29 @@
     </tr>
   </thead>
   <tbody>
+      {% for j in context.jobs %}
     <tr>
-      <td>== Nome do Job ==</td>
+      <td>{{ j.fullName }}</td>
       <td>== Status do Job ==</td>
       <td>== Status do Último Build ==</td>
       <td>
+        
         <div class="row">
           <div class="col-4">
-            <a href="/jenkins/build/== Nome do Job==" title="Iniciar Build">
+            <a href="/jenkins/build/{{ job }}" title="Iniciar Build">
               <i class="fas fa-redo-alt"></i>
             </a>
           </div>
           <div class="col-4">
-            <a href="/jenkins/update/== Nome do Job==" title="Atualizar Build">
+            <a href="/jenkins/update/" title="Atualizar Build">
               <i class="fas fa-pencil-alt"></i>
             </a>
           </div>
         </div>
+        
       </td>
     </tr>
+    {% endfor %}
   </tbody>
 </table>
 {% endblock %}
